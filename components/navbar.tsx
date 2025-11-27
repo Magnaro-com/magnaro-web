@@ -1,70 +1,80 @@
+"use client";
 import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
-import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
 import {
   Navbar as HeroUINavbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem
+  NavbarItem,
 } from "@heroui/navbar";
-
-import {
-  SearchIcon
-} from "@/components/icons";
+import { Icon } from "@iconify/react";
 
 export const Navbar = () => {
-  const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
-      endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
-      }
-      labelPlacement="outside"
-      placeholder="Search..."
-      startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-      }
-      type="search"
-    />
-  );
+  const navData = [
+    { name: "Technologies", href: "#" },
+    {
+      name: "Our projects",
+      href: "#",
+    },
+    {
+      name: "About us",
+      href: "#",
+    },
+    {
+      name: "Team",
+      href: "#",
+    },
+    {
+      name: "People",
+      href: "#",
+    },
+  ];
 
   return (
-       <HeroUINavbar>
-      <NavbarBrand>
-        
-        <p className="font-bold text-inherit">ACME</p>
-      </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link aria-current="page" href="#">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
+    <HeroUINavbar
+      classNames={{
+        wrapper: "max-w-screen",
+      }}
+      isBordered
+    >
+      <NavbarContent justify="start">
+        <NavbarBrand>
+          <p className="font-bold text-inherit">Magnaro</p>
+        </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent className="gap-18" justify="center">
+        {navData.map((item, index) => {
+          return (
+            <NavbarItem isActive>
+              <Link href={item.href} aria-current="page">
+                {item.name}
+              </Link>
+            </NavbarItem>
+          );
+        })}
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+        <NavbarItem>
+          <Button
+            isIconOnly
+            variant="light"
+            aria-label="LinkedIn"
+            className="text-2xl"
+          >
+            <Icon icon="cib:linkedin-in" />
+          </Button>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+          <Button
+            as={Link}
+            color="primary"
+            href="#"
+            variant="solid"
+            className="bg-gradient-to-l from-primary-900 to-primary-500 px-[25px] py-[14px] font-semibold"
+            radius="sm"
+          >
+            Contact us
           </Button>
         </NavbarItem>
       </NavbarContent>

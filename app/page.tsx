@@ -1,11 +1,12 @@
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
+"use client";
 import { GithubIcon } from "@/components/icons";
+import { subtitle, title } from "@/components/primitives";
+import { siteConfig } from "@/config/site";
+import { Code } from "@heroui/code";
+import { Link } from "@heroui/link";
+import { Button } from "@heroui/react";
+import { Snippet } from "@heroui/snippet";
+import { button as buttonStyles } from "@heroui/theme";
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
       </div>
 
       <div className="flex gap-3">
+        <Button variant="solid" color="primary">
+          test
+        </Button>
         <Link
           isExternal
           className={buttonStyles({
