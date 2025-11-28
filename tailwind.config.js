@@ -26,9 +26,17 @@ const config = {
             },
           },
           colors: {
+            content1: "#46484D",
             secondary: {
               50: "#F6F0E1",
+              100: "#EEE4CA",
+              200: "#E2D3AD",
+              300: "#D8C18F",
+              400: "#D0B576",
               500: "#D4B36A",
+              600: "#C19E5E",
+              700: "#AC8C54",
+              800: "#9F804E",
               900: "#9D854F",
               DEFAULT: "#9D854F",
             },

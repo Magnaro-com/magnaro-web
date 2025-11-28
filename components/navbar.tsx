@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@heroui/button";
+import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import {
   Navbar as HeroUINavbar,
@@ -33,20 +34,20 @@ export const Navbar = () => {
   return (
     <HeroUINavbar
       classNames={{
-        wrapper: "max-w-screen",
+        wrapper: "max-w-screen shadow-[0_4px_40px_0_rgba(0,0,0,0.1)]",
       }}
-      isBordered
     >
       <NavbarContent justify="start">
         <NavbarBrand>
-          <p className="font-bold text-inherit">Magnaro</p>
+          <Image width={54} height={24} src="/logo.png" />
+          <p className="font-bold text-inherit pl-[9px]">Magnaro</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="gap-18" justify="center">
         {navData.map((item, index) => {
           return (
-            <NavbarItem isActive>
+            <NavbarItem isActive key={index}>
               <Link href={item.href} aria-current="page">
                 {item.name}
               </Link>
@@ -65,7 +66,7 @@ export const Navbar = () => {
             <Icon icon="cib:linkedin-in" />
           </Button>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="pl-[50px]">
           <Button
             as={Link}
             color="primary"
