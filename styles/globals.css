@@ -15,6 +15,13 @@
   --heroui-secondary-900: #9d854f;
 }
 @custom-variant dark (&:is(.dark *));
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
 /* 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

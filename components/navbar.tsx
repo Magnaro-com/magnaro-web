@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
-import { Link } from "@heroui/link";
 import {
   Navbar as HeroUINavbar,
   NavbarBrand,
@@ -9,25 +8,23 @@ import {
   NavbarItem,
 } from "@heroui/navbar";
 import { Icon } from "@iconify/react";
+import Link from "next/link";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [currentSection, setCurrentSection] = useState<string>();
   const navData = [
-    { name: "Technologies", href: "#" },
     {
       name: "Our projects",
-      href: "#",
+      href: "#projects",
     },
     {
       name: "About us",
-      href: "#",
-    },
-    {
-      name: "Team",
-      href: "#",
+      href: "#about",
     },
     {
       name: "People",
-      href: "#",
+      href: "#team",
     },
   ];
 
@@ -47,8 +44,14 @@ export const Navbar = () => {
       <NavbarContent className="gap-18" justify="center">
         {navData.map((item, index) => {
           return (
-            <NavbarItem isActive key={index}>
-              <Link href={item.href} aria-current="page">
+            <NavbarItem key={index} isActive={currentSection === item.href}>
+              <Link
+                href={item.href}
+                aria-current="page"
+                onNavigate={(e) => {
+                  setCurrentSection(item.href);
+                }}
+              >
                 {item.name}
               </Link>
             </NavbarItem>
