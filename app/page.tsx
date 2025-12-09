@@ -3,6 +3,7 @@ import LogoLoop from "@/components/LogoLoop";
 
 import { AccentBar } from "@/components/AccentBar";
 import { About } from "@/components/landing-page/About";
+import { ContactUs } from "@/components/landing-page/ContactUs";
 import { Projects } from "@/components/landing-page/Projects";
 import { Team } from "@/components/landing-page/Team";
 import { Welcome } from "@/components/landing-page/Welcome";
@@ -75,6 +76,8 @@ export default function Home() {
       <Projects />
       <Divider />
       <Team />
+      <Divider />
+      <ContactUs />
     </>
   );
 }
