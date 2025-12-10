@@ -9,24 +9,25 @@ import {
 } from "@heroui/navbar";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useHash } from "./useHash";
+
+export const navData = [
+  {
+    name: "Our projects",
+    href: "#projects",
+  },
+  {
+    name: "About us",
+    href: "#about",
+  },
+  {
+    name: "People",
+    href: "#team",
+  },
+];
 
 export const Navbar = () => {
-  const [currentSection, setCurrentSection] = useState<string>();
-  const navData = [
-    {
-      name: "Our projects",
-      href: "#projects",
-    },
-    {
-      name: "About us",
-      href: "#about",
-    },
-    {
-      name: "People",
-      href: "#team",
-    },
-  ];
+  const hash = useHash();
 
   return (
     <HeroUINavbar
@@ -44,14 +45,8 @@ export const Navbar = () => {
       <NavbarContent className="gap-18" justify="center">
         {navData.map((item, index) => {
           return (
-            <NavbarItem key={index} isActive={currentSection === item.href}>
-              <Link
-                href={item.href}
-                aria-current="page"
-                onNavigate={(e) => {
-                  setCurrentSection(item.href);
-                }}
-              >
+            <NavbarItem key={index} isActive={hash === item.href}>
+              <Link href={item.href} aria-current="page">
                 {item.name}
               </Link>
             </NavbarItem>
